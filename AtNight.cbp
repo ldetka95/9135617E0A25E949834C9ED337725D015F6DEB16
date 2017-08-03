@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="AtNight" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="AtNight" prefix_auto="1" extension_auto="1" />
+				<Option object_output="dbgobj/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add library="C:/MinGW/lib/al/Win32/OpenAL32.lib" />
+					<Add library="C:/MinGW/lib/vorbis/ogg.lib" />
+					<Add library="C:/MinGW/lib/vorbis/vorbis.lib" />
+					<Add library="C:/MinGW/lib/vorbis/vorbisfile.lib" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="AtNight" prefix_auto="1" extension_auto="1" />
+				<Option object_output="relobj/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Linker>
+			<Add library="opengl32" />
+			<Add library="glu32" />
+			<Add library="gdi32" />
+			<Add library="C:/MinGW/lib/glut32.lib" />
+		</Linker>
+		<Unit filename="Audio.h" />
+		<Unit filename="Billboard.h" />
+		<Unit filename="BinaryMap.h" />
+		<Unit filename="BlockProperties.h" />
+		<Unit filename="Blocks.h" />
+		<Unit filename="Camera.h" />
+		<Unit filename="Cheat.h" />
+		<Unit filename="Coordinates.h" />
+		<Unit filename="Core.h" />
+		<Unit filename="DelayedLoading.h" />
+		<Unit filename="DelayedThread.h" />
+		<Unit filename="Effect2D.h" />
+		<Unit filename="Entity.h" />
+		<Unit filename="Lighter.h" />
+		<Unit filename="Logic.h" />
+		<Unit filename="MPConnector.h" />
+		<Unit filename="MPStates.h" />
+		<Unit filename="Map.h" />
+		<Unit filename="MapDB.h" />
+		<Unit filename="Menu.h" />
+		<Unit filename="Model.h" />
+		<Unit filename="Object.h" />
+		<Unit filename="ObjectModel.h" />
+		<Unit filename="Point3D.h" />
+		<Unit filename="RWGame.h" />
+		<Unit filename="Radio.h" />
+		<Unit filename="ScreenUtils.h" />
+		<Unit filename="Stringlinker.h" />
+		<Unit filename="Textures.h" />
+		<Unit filename="TreeModel.h" />
+		<Unit filename="VorbisAudio.h" />
+		<Unit filename="VorbisRadio.h" />
+		<Unit filename="Water.h" />
+		<Unit filename="Weapon.h" />
+		<Unit filename="changelog.txt" />
+		<Unit filename="main.cpp" />
+		<Unit filename="pse2.h" />
+		<Unit filename="pse2_CustomInterpreter.h" />
+		<Unit filename="pse2_alloctypes.h" />
+		<Unit filename="pse2_main.h" />
+		<Unit filename="res.rs.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<debugger />
+			<envvars />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

@@ -1,0 +1,192 @@
+﻿    @NIGHT CHANGELOG
+
+    0.0.0.A
+        - Added 3D cube render
+        - Implemented textures
+        - Implemented audio
+        - Created Entity type
+        - Added simple map generation
+        - Implemented simple camera ( RPY coordinates )
+
+    0.0.1.A
+        - Fixed camera rotation ( Spherical coordinates )
+        - Added block rotation ( RPY coordinates )
+        - Map autogeneration fixed
+        - Implemented Stringlinker
+        - Added map loading and saving
+        - Added possibility for block destroying and/or placing while in Edit Mode
+        - Added placeable block type switch in Edit Mode
+        - Added fog enable/disable in Edit Mode
+        - Added shooting, bullets and bullets collision ( with map )
+
+    0.0.2.A
+        - Implemented monsters
+        - Added bullets collision ( with monsters )
+        - Bullet dispersion works now
+        - Monsters spawns deep in fog
+        - Added some map params
+        - Monsters are simple textured special cubes, not harmful
+        - Implemented simple Dog/Watcher AI logic
+
+    0.0.3.A
+        - Fixed monster look; they are always looking at player now
+        - Core can now display opaque textures, using White ( 0x00FFFFFF ) as full-transparent color;
+            anyway, HDD read in RGBA format is still not supported ( single bitmaps ).
+            TIP: if you want white pixels, use Faked-White ( 0x00FEFEFE ) instead.
+        - Monsters now spawns at random time
+        - Monsters no longer exists in Edit Mode
+        - Added blood vestiges with timeout
+
+    0.0.4.A // Started 18.11.2015
+        - Monsters will now spawn ONLY in point which is visible for player; protection from locking behind wall or inside it
+        - Implemented Drunk effect, dunno why ¯\(°_o)/¯
+        - Fixed monster spawning
+        - Added blood vestiges when hit
+        - Fixed some serious bugs in math functions
+        - Added easy and simple cube Models; one Entity can be displayed as N different cubes joined in single Model
+        - Entity legs can be animated in a realistic way
+        - Implemented Near-Death cam effects
+
+    0.0.5.A // Started 24.11.2015
+        - Monsters are no longer harmless
+        - Added damage and Constant Pain sounds
+        - Enhanced Near-Death effects
+        - Added model loading from HDD
+        - Fixed rendering texture problems
+        - StringLinker audio schemes were ported
+        - Explorer icon added
+        - Implemented Object and loading all Objects via StringLinker file
+        - Implemented random Spawn and loading Spawn schemes proper to level
+
+    0.0.6.A // Started 26.11.2015
+        - Current position is displayed while in Edit Mode
+        - Fixed scope implementation
+        - Added mouse sensitivity regulation
+        - Linked threaded BassRadio ( default path: data/MyMusic/ )
+        - Map can be saved now - press F1 during Edit Mode
+        - Textures can be marked as Forbidden ( can't be selected in Edit Mode )
+
+    0.1.0.A // Started 4.12.2015
+        - Implemented Ammo, Weapons, stashes and all that class disorder
+        - Added loading of custom Weapons and Ammo
+        - Changed camera shooting dispersion to recoil ( stabilizes automatically )
+        - Added automatic ammo boxes spawning with time interval
+        - Fixed display of ammo boxes
+        - Changed bullets to lines
+
+    0.1.1.A // Started 16.12.2015
+        - Linked PSE2 to the project
+        - Added script auto loading and set of instructions:
+            WHILE_NOT_INDIST,               - holds a script if player is outside a given sphere. [ CS UNSAFE ]
+            JUMP_IF_NOT_INDIST,             - jumps to an address if player is outside a given sphere.
+            JUMP,                           - jumps to an address immediately.
+            CALL,                           - calls a function put under specified address.
+            RET,                            - returns from a CALL.
+            TELEPORT,                       - teleports player to the absolute position.
+            TELEPORT_RELATIVE,              - teleports player to the relative position.
+            CRITICAL_BEGIN,                 - begins critical section ( CS ).
+            CRITICAL_END,                   - ends all critical sections ( CS ); they cannot be nested.
+            SPAWN,                          - spawns a single entity at given absolute position using register addressing.
+            REG_MOV,                        - copies data from register B to A.
+            REG_SET,                        - puts a constant into register.
+            JUMP_IF_LESS,                   - jumps to an address if A < B.
+            JUMP_IF_GREATER,                - jumps to an address if A > B.
+            REG_ADD_CONST                   - adds a constant value to specified register.
+
+    0.1.2.A // Started 20.12.2015
+        - Added possibility to use different monster logics than Dog Logic
+        - Added logics: Kayley, Horse, Guardian
+        - Generalized logics ( or at least partial behaviors ) to Living Logic and Follower Logic
+        - Some monsters can jump themselves
+
+    0.1.3.A // Started 31.12.2015
+        - Huge optimization for rendering, rewrote about 70% of render engine;
+            map is no longer displayed as set of cubes, performance increased at least 150 TIMES ( seriously! )
+        - Added following script instructions:
+            NEXTLEVEL,                      - switches to next level.
+            SETLEVEL,                       - sets current level to given parameter.
+            REG_ADD,                        - adds a value of B register to A register and saves result inside A.
+            REG_SUB,                        - subtracts a value of B register from A register and saves result inside A.
+            REG_NEG,                        - multiplies value of specified register by -1.
+            REG_MUL,                        - multiplies B register by A register and saves result inside A.
+            REG_DIV,                        - divides A register by B register and saves result inside A.
+            NOOP,                           - empty operation, does nothing.
+            LOOP_BY_REG,                    - loop to specified address, if value of A register is greater than zero. Decrements A automatically.
+            JUMP_IF_EQUAL                   - jumps to an address if A == B.
+         - Changed camera look angles to use both Spherical and RPY coordinates; gluLookAt is useless now
+         - Fixed Drunk Effects with camera rolling
+	 - Finally added lighting, with 4 hard-coded sources, each one moving together with player
+		GL_LIGHT0 - torchlight, toggled by 'f' key
+			( fog control changed to Shift+f )
+		GL_LIGHT1 - overall moonlight
+		GL_LIGHT2 - shoot light effect
+		GL_LIGHT3 - cloud enlightenment
+         - Fixed serious bug with overriding memory by bad address references; stability enhanced from now
+
+    0.1.4.A. // Started 17.02.2016
+         - Minor fix of model rotating
+         - Planning to rewrite ALL model structure again (TreeModel)
+         - Added wirecube cursor when in Edit Mode; shows editable block as in Minecraft
+         - In Edit Mode, block can be selected by pressing middle mouse button on desired block
+
+    0.2.0.A. // Started 23.02.2016
+         - One-texture map displaying optimization ( about 2-3 times faster now )
+         - Implemented custom BillBoards
+         - Added following script instructions:
+            BILLBOARD                       - Adds new billboard at specified center ( x, y, z ), with specified inclination, azimuth, width, height and texture ID.
+         - Added anxiety cam-effect
+         - Implemented first like-shader effect - anxiety screen noise
+
+    0.2.1.A. // Started 6.03.2016
+        ABANDONED VERSION
+         - Nothing has changed
+
+    0.2.2.A. // Started 5.05.2016
+         - Changed BASS library support to OggVorbis; BASS is not included nor used from now
+         - Programmed OggVorbis streams and samples. There is 99.9% guarantee that streams causes no leaks and are full stable
+         - Reconverted all audio data to Ogg format; MP3 is no longer supported
+         - Temporary disabled BASSRadio until rewriting it under OggVorbis
+         - Weapon precise aiming now requires a little time to setup; time may be different for each weapon
+         - Added bouncing during move; running intensify the effect, and footsteps sound is slightly louder and faster
+         - Fixed serious camera bug with angles
+         - First Planter module test; map got corrupted in random places near test plant but it works and gives no error .___. anyway, Planter now works as desired
+         - Console letters are no longer affected by Near-Death cam effect
+         - Added weapon spawning; most of weapons are locked at start, and need to be picked up
+         - Improved functionality of Edit Mode a lot:
+             - dispersed monolithic "Edit Mode" to sub-modes ( Strict, Polygon, Planter, Ammospawn, Weaponspawn )
+             - Edit Block display looks more like in Minecraft
+             - when in Ammospawn sub-mode ( or just Mode now ), Edit Block is textured as ammo
+             - when in Weaponspawn Mode, there is weapon model instead of Edit Block
+             - desired ammo/weapon spawn can be placed or removed by cursor
+             - controls were simplified a bit ( only 'q'/'e' to select prev/next item )
+         - Allowed beta version of 6sense Algorithm:
+            If player >>probably<< haven't see i-th monster, the monster is close enough to player
+            AND this is the CLOSEST monster at the moment, quickly aim camera at him.
+            Doesn't do anything useful except for scaring the player; there is not enough time for any other reaction.
+         - Added following script instructions:
+            ENABLE_WEAPONS                   - Enables ( p = 1 ) or disables ( p = 0 ) weapon use.
+         - Simple cheat system. Added cheats:
+             - stashed - unlock all weapons,
+             - fracture - infinity ammo for all weapons.
+
+    0.2.3.A. // Started 10.05.2016
+         - Improved shooting customization: bullet color, bullet trace velocity, bullet speed
+         - Added cheats:
+             - fps - force FPS counter
+         - Slight optimization of map rendering
+         - Cutoff for chunk range ( doesn't draw anything behind fog )
+         - Implemented flesh ( class, physics, non-textured display )
+
+    0.2.4.A. // Started 18.05.2016
+         - Improved flesh display ( random flesh texture applied )
+         - Semi-fix of recognizing for Living Logic whether to jump
+         - Player is now treated as usual Entity-from-Object ( has non-NULL mother )
+         - Fixed serious initialization bug ( audio thread construction )
+         - Rewritten radio under OggVorbis ( VorbisRadio )
+         - Added time-out camera quaking
+
+    0.2.5.A. // Started 10.08.2016
+         - First test implementation of 3D multiplayer game mode
+         - AtNight works together with Lunatic from now
+         - Added parallel loading ( multi-threaded )
+
